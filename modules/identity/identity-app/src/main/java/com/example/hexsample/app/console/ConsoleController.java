@@ -5,6 +5,7 @@ import com.example.hexsample.domain.port.in.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +14,8 @@ import java.util.Scanner;
 public class ConsoleController {
     private final UserService userService;
     Scanner scanner;
+    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+
 
     public ConsoleController(UserService userService) {
         this.userService = userService;
@@ -25,7 +28,7 @@ public class ConsoleController {
 
             boolean exit = false;
             while (!exit) {
-                System.out.println("1. Display Users");
+                System.out.println(ConsoleColor.ANSI_RESET.color+"1. Display Users");
                 System.out.println("2. Get User by Email");
                 System.out.println("3. Exit");
                 System.out.print("Choose an option: ");
@@ -58,7 +61,7 @@ public class ConsoleController {
     private void displayUsers() {
         List<User> users = userService.getUsers();
         for (User user : users) {
-            System.out.println(user);
+            System.out.println(ConsoleColor.ANSI_BLUE.color + user.toString());
         }
     }
 
@@ -68,9 +71,9 @@ public class ConsoleController {
 
         User user = userService.getByEmail(email);
         if (user != null) {
-            System.out.println("User found: " + user);
+            System.out.println(ConsoleColor.ANSI_BLUE.color+"User found: " + user);
         } else {
-            System.out.println("User not found for email: " + email);
+            System.out.println(ConsoleColor.ANSI_PURPLE.color+"User not found for email: " + email);
         }
     }
 }
