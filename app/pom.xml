@@ -19,6 +19,12 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+
+        <!-- app dependency -->
+        <dependency>
             <groupId>com.example.hexsample</groupId>
             <artifactId>identity-app</artifactId>
             <version>0.0.1-SNAPSHOT</version>
