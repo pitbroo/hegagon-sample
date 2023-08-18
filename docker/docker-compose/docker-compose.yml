@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  hex-sample-database:
+    image: bitnami/postgresql:15.2.0
+    container_name: hex-sample-database
+    environment:
+      - POSTGRES_USER=hex
+      - POSTGRES_PASSWORD=hex
+      - POSTGRES_DB=hex
+    ports:
+      - '5432:5432'
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+    name: hex
