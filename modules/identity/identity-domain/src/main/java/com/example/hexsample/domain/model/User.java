@@ -8,4 +8,12 @@ public record User(
         String phoneNumber,
         String pesel
 ){
+    @Override
+    public String toString() {
+        return "User{" +
+                name  +
+                " " + surname +
+                ". email: " + email +
+                '}';
+    }
 }

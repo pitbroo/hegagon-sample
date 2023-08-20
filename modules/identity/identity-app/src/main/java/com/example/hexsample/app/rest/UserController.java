@@ -1,6 +1,7 @@
 package com.example.hexsample.app.rest;
 
-import com.example.hexsample.domain.model.User;
+import com.example.hexsample.app.rest.mapper.MapperAppRest;
+import com.example.hexsample.app.rest.model.UserResponse;
 import com.example.hexsample.domain.port.in.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -19,16 +20,19 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final MapperAppRest mapper;
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsers() {
-        List<User> users = userService.getUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    public ResponseEntity<List<UserResponse>> getUsers() {
+        val users = userService.getUsers();
+        val userResponse = mapper.toApp(users);
+        return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
     @GetMapping("/{email}")
-    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+    public ResponseEntity<UserResponse> getUserByEmail(@PathVariable String email) {
         val user = userService.getByEmail(email);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        val userResponse = mapper.toApp(user);
+        return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 }

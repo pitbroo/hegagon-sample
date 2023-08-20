@@ -12,11 +12,10 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DomainUserService implements UserService {
+class DomainUserService implements UserService {
     private final UserRepository userRepository;
 
     @Override
-
     public User getByEmail(String email) throws UserForEmailNotFoundException {
         return userRepository.getByEmail(email).orElseThrow(
                 () -> new UserForEmailNotFoundException(email)
