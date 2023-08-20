@@ -1,4 +1,4 @@
-package com.example.hexsample.repository;
+package com.example.hexsample.infrastructure.memory.repository;
 
 import com.example.hexsample.domain.model.User;
 import com.example.hexsample.domain.port.out.UserRepository;
@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@ConditionalOnProperty(name = "use.db.provider", havingValue = "SQL", matchIfMissing = true)
-class UserRepositorSql implements UserRepository {
+@ConditionalOnProperty(name = "use.db.provider", havingValue = "MEMORY")
+class UserRepositoryMemory implements UserRepository {
     List<User> users;
     @PostConstruct
     void onInit(){
         users = List.of(
-                new User("Piotr", "Dbowski", 27, "piotr@wp.pl",
+                new User("Piotr", "Kowalski", 27, "piotr@wp.pl",
                         "+48602891000", "908001233200"),
-                new User("Mariusz", "Dbowski", 47, "mariusz@wp.pl",
+                new User("Mariusz", "Pudzikowski", 47, "mariusz@wp.pl",
                         "+48601891000", "778001233200")
         );
 
