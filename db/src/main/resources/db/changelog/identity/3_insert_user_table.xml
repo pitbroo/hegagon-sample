@@ -1,0 +1,27 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="3" author="pitbroo">
+        <insert tableName="USERS" schemaName="HEX_SAMPLE">
+            <column name="ID" value="1" />
+            <column name="NAME" value="Piotr" />
+            <column name="SURNAME" value="Nowak" />
+            <column name="AGE" value="30" />
+            <column name="EMAIL" value="piotr@wp.pl" />
+            <column name="PHONE_NUMBER" value="123-456-7890" />
+            <column name="PESEL" value="12345678901" />
+        </insert>
+        <insert tableName="USERS" schemaName="HEX_SAMPLE">
+            <column name="ID" value="2" />
+            <column name="NAME" value="Mariusz" />
+            <column name="SURNAME" value="Smith" />
+            <column name="AGE" value="28" />
+            <column name="EMAIL" value="mariusz@wp.pl" />
+            <column name="PHONE_NUMBER" value="987-654-3210" />
+            <column name="PESEL" value="98765432109" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -7,4 +7,5 @@
 
     <include file="1_create_schema.xml" relativeToChangelogFile="true"/>
     <include file="2_add_user_table.xml" relativeToChangelogFile="true"/>
+    <include file="3_insert_user_table.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

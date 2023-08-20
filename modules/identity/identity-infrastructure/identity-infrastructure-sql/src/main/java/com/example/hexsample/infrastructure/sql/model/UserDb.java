@@ -2,10 +2,12 @@ package com.example.hexsample.infrastructure.sql.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
-@Table(name = "Users", schema = "hex_sample")
+@Table(name = "USERS", schema = "HEX_SAMPLE")
 public class UserDb {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
