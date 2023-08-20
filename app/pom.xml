@@ -32,7 +32,13 @@
         </dependency>
         <dependency>
             <groupId>com.example.hexsample</groupId>
-            <artifactId>identity-infrastructure</artifactId>
+            <artifactId>identity-infrastructure-sql</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example.hexsample</groupId>
+            <artifactId>identity-infrastructure-memory</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
